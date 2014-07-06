@@ -26,24 +26,6 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('app/styles'));
 });
 
-gulp.task('connect', function() {
-    var connect = require('connect');
-    var app = connect()
-        .use(require('connect-livereload')({ port: 35729 }))
-        .use(connect.static('app'))
-        .use(connect.directory('app'));
-
-    require('http').createServer(app)
-        .listen(9000)
-        .on('listening', function() {
-            console.log('Started connect web server on http://localhost:9000');
-        });
-});
-
-gulp.task('serve', ['connect', 'sass'], function () {
-    require('opn')('http://localhost:9000');
-});
-
 gulp.task('images', function(){
     return gulp.src('app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}')
         .pipe(gulp.dest('dist/images'));
@@ -92,7 +74,23 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('watch', ['connect', 'serve'], function () {
+gulp.task('connect', function() {
+    var connect = require('connect');
+    var app = connect()
+        .use(require('connect-livereload')({ port: 35729 }))
+        .use(connect.static('app'))
+        .use(connect.directory('app'));
+
+    require('http').createServer(app)
+        .listen(9000)
+        .on('listening', function() {
+            console.log('Started connect web server on http://localhost:9000');
+
+            require('opn')('http://localhost:9000');
+        });
+});
+
+gulp.task('serve', ['connect', 'sass'], function () {
     var livereload = require('gulp-livereload');
 
     livereload.listen();
