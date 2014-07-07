@@ -2,7 +2,7 @@
   "name": "test-project",
   "version": "0.0.0",
   "devDependencies": {
-    "connect": "^3.0.1",
+    "connect": "^2.22.0",
     "connect-livereload": "^0.4.0",
     "gulp": "^3.8.5",
     "gulp-cssbeautify": "^0.1.3",
