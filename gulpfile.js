@@ -92,8 +92,6 @@ gulp.task('connect', function() {
         .listen(9000)
         .on('listening', function() {
             console.log('Started connect web server on http://localhost:9000');
-
-            require('opn')('http://localhost:9000');
         });
 });
 
@@ -101,6 +99,8 @@ gulp.task('serve', ['connect', 'sass'], function () {
     var livereload = require('gulp-livereload');
 
     livereload.listen();
+
+    require('opn')('http://localhost:9000');
 
     // watch for changes
     gulp.watch([
