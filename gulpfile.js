@@ -26,8 +26,15 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('app/styles'));
 });
 
-gulp.task('images', function(){
-    return gulp.src('app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}')
+gulp.task('images', function () {
+    var cache = require('gulp-cache'),
+        imagemin = require('gulp-imagemin');
+
+    return gulp.src('app/images/**/*')
+        .pipe(cache(imagemin({
+            progressive: true,
+            interlaced: true
+        })))
         .pipe(gulp.dest('dist/images'));
 });
 
