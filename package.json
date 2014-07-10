@@ -1,6 +1,7 @@
 {
   "name": "test-project",
   "version": "0.0.0",
+  "dependencies": {},
   "devDependencies": {
     "connect": "^2.22.0",
     "connect-livereload": "^0.4.0",
@@ -18,5 +19,8 @@
     "opn": "^0.1.2",
     "rimraf": "^2.2.8",
     "wiredep": "^1.8.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
   }
 }
