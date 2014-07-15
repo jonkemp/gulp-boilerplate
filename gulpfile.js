@@ -15,14 +15,14 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sass', function () {
-    var sass = require('gulp-sass'),
+    var rubySass = require('gulp-ruby-sass'),
         cssbeautify = require('gulp-cssbeautify');
 
     return gulp.src('app/scss/*.scss')
-        .pipe(sass({
-            outputStyle: 'expanded'
+        .pipe(rubySass({
+            style: 'expanded',
+            precision: 10
         }))
-        .pipe(cssbeautify())
         .pipe(gulp.dest('app/styles'));
 });
 
