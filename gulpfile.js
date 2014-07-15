@@ -15,8 +15,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sass', function () {
-    var rubySass = require('gulp-ruby-sass'),
-        cssbeautify = require('gulp-cssbeautify');
+    var rubySass = require('gulp-ruby-sass');
 
     return gulp.src('app/scss/*.scss')
         .pipe(rubySass({
