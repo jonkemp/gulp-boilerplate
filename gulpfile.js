@@ -54,13 +54,14 @@ gulp.task('html', ['sass'], function () {
     var uglify = require('gulp-uglify'),
         minifyCss = require('gulp-minify-css'),
         useref = require('gulp-useref'),
-        gulpif = require('gulp-if');
+        gulpif = require('gulp-if'),
+        assets = useref.assets();
 
     return gulp.src('app/*.html')
-        .pipe(useref.assets())
+        .pipe(assets)
         .pipe(gulpif('*.js', uglify()))
         .pipe(gulpif('*.css', minifyCss()))
-        .pipe(useref.restore())
+        .pipe(assets.restore())
         .pipe(useref())
         .pipe(gulp.dest('dist'));
 });
