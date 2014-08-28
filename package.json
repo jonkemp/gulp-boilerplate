@@ -17,6 +17,8 @@
     "gulp-useref": "^0.6.0",
     "opn": "^1.0.0",
     "rimraf": "^2.2.8",
+    "serve-index": "^1.2.0",
+    "serve-static": "^1.5.3",
     "wiredep": "^1.8.1"
   },
   "engines": {
