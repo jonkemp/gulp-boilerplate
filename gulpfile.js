@@ -15,11 +15,10 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sass', function () {
-    var rubySass = require('gulp-ruby-sass');
+    var sass = require('gulp-sass');
 
     return gulp.src('app/scss/*.scss')
-        .pipe(rubySass({
-            style: 'expanded',
+        .pipe(sass({
             precision: 10
         }))
         .pipe(gulp.dest('app/styles'));
